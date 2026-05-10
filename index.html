@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OwnStats Test Site - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- OwnStats tracking script goes here -->
+
+</head>
+<body>
+
+  <header>
+    <h1>OwnStats Test Site</h1>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Home</h2>
+    <p>
+      This is a minimal test site for validating an OwnStats analytics tracking
+      script. Navigate between pages to generate page views, or click the button
+      below to test interaction tracking.
+    </p>
+    <p>
+      Go to the <a href="about.html">About</a> page to create another page view.
+    </p>
+
+    <button class="btn" id="test-btn">Click me to test tracking</button>
+    <div id="click-output"></div>
+  </main>
+
+  <footer>
+    OwnStats tracking test &mdash; static site
+  </footer>
+
+  <script>
+    document.getElementById('test-btn').addEventListener('click', function () {
+      var count = (parseInt(this.dataset.clicks || '0', 10)) + 1;
+      this.dataset.clicks = count;
+      document.getElementById('click-output').textContent =
+        'Button clicked ' + count + ' time' + (count === 1 ? '' : 's') + '.';
+    });
+  </script>
+
+</body>
+</html>
